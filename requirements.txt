@@ -1,0 +1,4 @@
+pycodestyle
+pytest
+click
+git+https://github.com/bast/flanders.git
