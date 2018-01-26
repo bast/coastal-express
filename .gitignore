@@ -1,0 +1,6 @@
+venv/
+.cache/
+build/
+__pycache__/
+.coverage
+*.pyc
