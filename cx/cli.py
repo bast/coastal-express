@@ -5,7 +5,7 @@ from .main import main
 
 @click.command()
 @click.option('--boundary', help='File containing the boundary.')
-@click.option('--islands', help='File(s) containing island data - can be a regular expression.')
+@click.option('--islands', help='File(s) containing island data - you can use wildcards.')
 @click.option('--view-angle', help='View angle in degrees.')
 @click.option('--min-distance', help='Min distance.')
 @click.option('--max-distance', help='Max distance.')

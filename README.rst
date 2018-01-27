@@ -37,12 +37,12 @@ Available options
 .. code:: shell
 
   $ cx --help
+
   Usage: cx [OPTIONS]
 
   Options:
     --boundary TEXT      File containing the boundary.
-    --islands TEXT       File(s) containing island data - can be a regular
-                         expression.
+    --islands TEXT       File(s) containing island data - you can use wildcards.
     --view-angle TEXT    View angle in degrees.
     --min-distance TEXT  Min distance.
     --max-distance TEXT  Max distance.
