@@ -19,7 +19,10 @@ def compare_files(file1, file2):
 def test_main():
     _this_path = os.path.dirname(os.path.realpath(__file__))
 
-    temp_dir = tempfile.mkdtemp()
+    if os.getenv('GENERATE_REFERENCES', False):
+        output_dir = os.path.join(_this_path, '..', 'example', 'output')
+    else:
+        output_dir = tempfile.mkdtemp()
 
     boundary_file_name = os.path.join(_this_path, '..', 'example', 'boundary.txt')
     island_file_names = [os.path.join(_this_path, '..', 'example', 'islands.txt')]
@@ -29,11 +32,11 @@ def test_main():
          view_angle_deg=20.0,
          min_distance=3.0,
          max_distance=40.0,
-         output_directory=temp_dir)
+         output_directory=output_dir)
 
-    compare_files(os.path.join(_this_path, '..', 'example', 'output', 'boundary.txt'),
-                  os.path.join(temp_dir, 'boundary.txt'))
-    compare_files(os.path.join(_this_path, '..', 'example', 'output', 'islands.txt'),
-                  os.path.join(temp_dir, 'islands.txt'))
-
-    shutil.rmtree(temp_dir)
+    if not os.getenv('GENERATE_REFERENCES', False):
+        compare_files(os.path.join(_this_path, '..', 'example', 'output', 'boundary.txt'),
+                      os.path.join(output_dir, 'boundary.txt'))
+        compare_files(os.path.join(_this_path, '..', 'example', 'output', 'islands.txt'),
+                      os.path.join(output_dir, 'islands.txt'))
+        shutil.rmtree(output_dir)
