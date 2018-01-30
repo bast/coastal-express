@@ -50,7 +50,7 @@ def main(boundary_file_name,
                                                 angles_deg=angles_deg)
 
     distances = [get_distance(all_points[i], all_points[flanders_indices[i]]) for i in range(num_points)]
-    distances_reversed = reversed(distances)
+    distances = iter(distances)
 
     # now we have a reversed list of distances
     # we will go again through all input files and augment each of them with the distance
@@ -64,7 +64,7 @@ def main(boundary_file_name,
                     if len(line.split()) == 1:
                         f_out.write(line + '\n')
                     else:
-                        d = next(distances_reversed)
+                        d = next(distances)
                         # the distance is capped by min_distance and max_distance
                         d = max(d, min_distance)
                         d = min(d, max_distance)
