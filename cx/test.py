@@ -29,7 +29,7 @@ def test_main():
 
     main(boundary_file_name=boundary_file_name,
          island_file_names=island_file_names,
-         view_angle_deg=20.0,
+         view_angle_deg=90.0,
          min_distance=3.0,
          max_distance=40.0,
          output_directory=output_dir)
