@@ -64,3 +64,23 @@ the view vector.  In other words a view angle of N degrees is N degrees wide in
 total and is oriented symmetrically around the view vector which is
 perpendicular to the coast line.
 two neighboring points.
+
+
+Input and output formats
+------------------------
+
+The code will read boundary and island files. It assumes that the first line in
+the boundary file contains the total number of polygon points, followed by one
+line per point.  First and last polygon point are expected to be the same
+point.  Two first numbers in each line are assumed to be x and y coordinates in
+arbitrary but consistent units.  Each line can contain more numbers and the
+code will not worry about these.
+
+The code can read one or many island files. Each island file can contain one or
+many polygons.  Each polygon starts with one line specifying the total number
+of points.  First and last polygon point are expected to be the same point.
+Each point line is interpreted the same way as the boundary.
+
+The output format preserves all lines and numbers and the only thing it will do
+is to append each point line by the computed distance. In other words each
+point line will become longer by one number.
