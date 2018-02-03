@@ -48,3 +48,19 @@ Available options
     --max-distance TEXT  Max distance.
     --output-dir TEXT    Direction of the time arrow (0, 90, 180, or 270).
     --help               Show this message and exit.
+
+
+Definition of the view angle
+----------------------------
+
+The code will form view vectors perpendicular to the coastline. The code will
+make sure that along the boundary, the vectors point towards "inside" and along
+islands they point towards "outside". The view vector is computed to be
+perpendicular to the vector connecting the two neighboring points of the
+current point.
+
+The view angle of N degrees defines a view sector N/2 degrees to both sides of
+the view vector.  In other words a view angle of N degrees is N degrees wide in
+total and is oriented symmetrically around the view vector which is
+perpendicular to the coast line.
+two neighboring points.
