@@ -1,4 +1,4 @@
 pycodestyle
 pytest
 click
-git+https://github.com/bast/flanders.git
+flanders == 0.2.0

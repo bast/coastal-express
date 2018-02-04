@@ -15,7 +15,7 @@ Installation
 
 .. code:: shell
 
-  $ pip install --process-dependency-links git+https://github.com/bast/coastal-express.git
+  $ pip install cx
 
 
 Example

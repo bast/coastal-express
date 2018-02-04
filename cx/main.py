@@ -44,10 +44,10 @@ def main(boundary_file_name,
 
     flanders_context = flanders.new_context(num_points, all_points)
     angles_deg = [view_angle_deg for _ in range(num_points)]
-    flanders_indices = flanders.search_neighbor(context=flanders_context,
-                                                ref_indices=list(range(num_points)),
-                                                view_vectors=view_vectors,
-                                                angles_deg=angles_deg)
+    flanders_indices = flanders.search_neighbors(context=flanders_context,
+                                                 ref_indices=list(range(num_points)),
+                                                 view_vectors=view_vectors,
+                                                 angles_deg=angles_deg)
 
     distances = [get_distance(all_points[i], all_points[flanders_indices[i]]) for i in range(num_points)]
     distances = iter(distances)

@@ -32,10 +32,7 @@ setup(
       },
     install_requires=[
         'click==6.7.0',
-        'flanders==0.0.0',
-    ],
-    dependency_links=[
-        "git+https://github.com/bast/flanders.git@0e072e1566ce4b3fadca59609dd1ce03164dbedd#egg=flanders-0.0.0",
+        'flanders==0.2.0',
     ],
     include_package_data=True,
     classifiers=[
