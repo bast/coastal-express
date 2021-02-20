@@ -35,12 +35,15 @@ def get_normal_vectors(points, s):
     for i in range(num_points):
         i_before = i - 1
         i_after = (i + 1) % num_points
-        vector = (points[i_after][1] - points[i_before][1], -(points[i_after][0] - points[i_before][0]))
+        vector = (
+            points[i_after][1] - points[i_before][1],
+            -(points[i_after][0] - points[i_before][0]),
+        )
         vector = normalize(vector, s)
         vectors.append(vector)
     return vectors
 
 
 def normalize(vector, s):
-    norm = math.sqrt(vector[0]**2.0 + vector[1]**2.0)
+    norm = math.sqrt(vector[0] ** 2.0 + vector[1] ** 2.0)
     return (s * vector[0] / norm, s * vector[1] / norm)

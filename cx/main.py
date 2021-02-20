@@ -7,7 +7,7 @@ from .view_vectors import compute_view_vectors
 
 def read_points(file_name):
     polygons = []
-    with open(file_name, 'r') as f:
+    with open(file_name, "r") as f:
         for line in f:
             points = []
             num_points = int(line)
@@ -20,15 +20,17 @@ def read_points(file_name):
 
 
 def get_distance(p1, p2):
-    return math.sqrt((p2[0] - p1[0])**2.0 + (p2[1] - p1[1])**2.0)
+    return math.sqrt((p2[0] - p1[0]) ** 2.0 + (p2[1] - p1[1]) ** 2.0)
 
 
-def main(boundary_file_name,
-         island_file_names,
-         view_angle_deg,
-         min_distance,
-         max_distance,
-         output_directory):
+def main(
+    boundary_file_name,
+    island_file_names,
+    view_angle_deg,
+    min_distance,
+    max_distance,
+    output_directory,
+):
 
     # there is only one boundary
     boundary_points = read_points(boundary_file_name)[0]
@@ -44,12 +46,17 @@ def main(boundary_file_name,
 
     flanders_context = flanders.new_context(num_points, all_points)
     angles_deg = [view_angle_deg for _ in range(num_points)]
-    flanders_indices = flanders.search_neighbors(context=flanders_context,
-                                                 ref_indices=list(range(num_points)),
-                                                 view_vectors=view_vectors,
-                                                 angles_deg=angles_deg)
+    flanders_indices = flanders.search_neighbors(
+        context=flanders_context,
+        ref_indices=list(range(num_points)),
+        view_vectors=view_vectors,
+        angles_deg=angles_deg,
+    )
 
-    distances = [get_distance(all_points[i], all_points[flanders_indices[i]]) for i in range(num_points)]
+    distances = [
+        get_distance(all_points[i], all_points[flanders_indices[i]])
+        for i in range(num_points)
+    ]
     distances = iter(distances)
 
     # now we have a reversed list of distances
@@ -57,17 +64,19 @@ def main(boundary_file_name,
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
     for file_name in [boundary_file_name] + island_file_names:
-        with open(file_name, 'r') as f_in:
+        with open(file_name, "r") as f_in:
             file_name_without_path = ntpath.basename(file_name)
-            with open(os.path.join(output_directory, file_name_without_path), 'w') as f_out:
+            with open(
+                os.path.join(output_directory, file_name_without_path), "w"
+            ) as f_out:
                 for line in f_in.read().splitlines():
                     if len(line.split()) == 1:
-                        f_out.write(line + '\n')
+                        f_out.write(line + "\n")
                     else:
                         d = next(distances)
                         # the distance is capped by min_distance and max_distance
                         d = max(d, min_distance)
                         d = min(d, max_distance)
-                        f_out.write('{0} {1}\n'.format(line, d))
+                        f_out.write("{0} {1}\n".format(line, d))
 
     flanders.free_context(flanders_context)
