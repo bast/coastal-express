@@ -46,7 +46,7 @@ Available options
     --view-angle TEXT    View angle in degrees.
     --min-distance TEXT  Min distance.
     --max-distance TEXT  Max distance.
-    --output-dir TEXT    Direction of the time arrow (0, 90, 180, or 270).
+    --output-dir TEXT    Output folder.
     --help               Show this message and exit.
 
 
