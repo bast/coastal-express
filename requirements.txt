@@ -1,4 +1,4 @@
-pycodestyle
+black
 pytest
 click
 flanders == 0.2.0

@@ -1,7 +1,7 @@
-.. image:: https://travis-ci.org/bast/coastal-express.svg?branch=master
-   :target: https://travis-ci.org/bast/coastal-express/builds
+.. image:: https://github.com/bast/coastal-express/workflows/Test/badge.svg
+   :target: https://github.com/bast/coastal-express/actions
 .. image:: https://img.shields.io/badge/license-%20MPL--v2.0-blue.svg
-   :target: ../master/LICENSE
+   :target: LICENSE
 
 
 Coastal express
