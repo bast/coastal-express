@@ -13,7 +13,7 @@ Compute nearest neighbor distances along the coast with a view angle.
 Installation
 ------------
 
-.. code:: shell
+::
 
   $ pip install cx
 
@@ -21,7 +21,7 @@ Installation
 Example
 -------
 
-.. code:: shell
+::
 
   cx --boundary="$PWD/boundary.txt" \
      --islands="$PWD/islands.txt" \
@@ -34,7 +34,7 @@ Example
 Available options
 -----------------
 
-.. code:: shell
+::
 
   $ cx --help
 
@@ -63,7 +63,6 @@ The view angle of N degrees defines a view sector N/2 degrees to both sides of
 the view vector.  In other words a view angle of N degrees is N degrees wide in
 total and is oriented symmetrically around the view vector which is
 perpendicular to the coast line.
-two neighboring points.
 
 
 Input and output formats
