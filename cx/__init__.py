@@ -1,7 +1,5 @@
-from .version import version_info, __version__
-from .main import main
+"""
+Compute nearest neighbor distances along the coast with a view angle.
+"""
 
-__all__ = [
-    "version_info",
-    "main",
-]
+__version__ = "0.2.0"
