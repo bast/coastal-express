@@ -2,6 +2,8 @@
    :target: https://github.com/bast/coastal-express/actions
 .. image:: https://img.shields.io/badge/license-%20MPL--v2.0-blue.svg
    :target: LICENSE
+.. image:: https://badge.fury.io/py/cx.svg
+   :target: https://badge.fury.io/py/cx
 
 
 Coastal express
