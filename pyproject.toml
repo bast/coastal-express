@@ -9,7 +9,7 @@ author-email = "radovan.bast@uit.no"
 home-page = "https://github.com/bast/coastal-express"
 requires=[
     "click",
-    "flanders==0.2.0",
+    "flanders==0.3.0",
 ]
 description-file="README.rst"
 classifiers = ["License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"]

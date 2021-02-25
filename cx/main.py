@@ -42,20 +42,21 @@ def main(
             view_vectors += compute_view_vectors(islands_points, scale=1.0)
             all_points += islands_points
 
+    all_points = [(p[0], p[1]) for p in all_points]
+
     num_points = len(all_points)
 
-    flanders_context = flanders.new_context(num_points, all_points)
-    angles_deg = [view_angle_deg for _ in range(num_points)]
-    flanders_indices = flanders.search_neighbors(
-        context=flanders_context,
-        ref_indices=list(range(num_points)),
-        view_vectors=view_vectors,
-        angles_deg=angles_deg,
+    tree = flanders.build_search_tree(all_points)
+
+    observer_indices = list(range(num_points))
+    view_angles_deg = [90.0 for _ in observer_indices]
+
+    indices = flanders.nearest_indices_from_indices(
+        tree, observer_indices, view_vectors, view_angles_deg
     )
 
     distances = [
-        get_distance(all_points[i], all_points[flanders_indices[i]])
-        for i in range(num_points)
+        get_distance(all_points[i], all_points[indices[i]]) for i in range(num_points)
     ]
     distances = iter(distances)
 
@@ -78,5 +79,3 @@ def main(
                         d = max(d, min_distance)
                         d = min(d, max_distance)
                         f_out.write("{0} {1}\n".format(line, d))
-
-    flanders.free_context(flanders_context)
