@@ -5,11 +5,11 @@ build-backend = "flit_core.buildapi"
 [tool.flit.metadata]
 module = "cx"
 author = "Radovan Bast"
-author-email = "radovan.bast@uit.no"
+author-email = "bast@users.noreply.github.com"
 home-page = "https://github.com/bast/coastal-express"
 requires=[
     "click",
-    "flanders==0.3.1",
+    "flanders==0.3.2",
 ]
 description-file="README.rst"
 classifiers = ["License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"]
