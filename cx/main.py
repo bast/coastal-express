@@ -31,7 +31,6 @@ def main(
     max_distance,
     output_directory,
 ):
-
     # there is only one boundary
     boundary_points = read_points(boundary_file_name)[0]
     view_vectors = compute_view_vectors(boundary_points, scale=-1.0)

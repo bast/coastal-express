@@ -15,7 +15,7 @@ def compare_files(file1, file2):
             (float(n1), float(n2))
             for (n1, n2) in zip(lines1[i].split(), lines2[i].split())
         ]
-        for (f1, f2) in tuples:
+        for f1, f2 in tuples:
             assert f1 == pytest.approx(f2)
 
 
