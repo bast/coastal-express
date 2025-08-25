@@ -11,7 +11,7 @@ requires=[
     "click",
     "flanders==0.3.2",
 ]
-description-file="README.rst"
+description-file="README.md"
 classifiers = ["License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"]
 
 [tool.flit.scripts]

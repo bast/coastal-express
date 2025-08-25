@@ -1,59 +1,51 @@
-.. image:: https://github.com/bast/coastal-express/workflows/Test/badge.svg
-   :target: https://github.com/bast/coastal-express/actions
-.. image:: https://img.shields.io/badge/license-%20MPL--v2.0-blue.svg
-   :target: LICENSE
-.. image:: https://badge.fury.io/py/cx.svg
-   :target: https://badge.fury.io/py/cx
+[![test status](https://github.com/bast/coastal-express/workflows/Test/badge.svg)](https://github.com/bast/coastal-express/actions)
+[![license badge](https://img.shields.io/badge/license-%20GPL-blue.svg)](LICENSE)
+[![link to PyPI](https://badge.fury.io/py/cx.svg)](https://badge.fury.io/py/cx)
 
 
-Coastal express
-===============
+# Coastal express
 
 Compute nearest neighbor distances along the coast with a view angle.
 
 
-Installation
-------------
+## Installation
 
-::
+```bash
+$ pip install cx
+```
 
-  $ pip install cx
 
+## Example
 
-Example
--------
-
-::
-
-  cx --boundary="$PWD/boundary.txt" \
+```bash
+$ cx --boundary="$PWD/boundary.txt" \
      --islands="$PWD/islands.txt" \
      --view-angle=90.0 \
      --min-distance=3.0 \
      --max-distance=40.0 \
      --output-dir="$PWD/output"
+```
 
 
-Available options
------------------
+## Available options
 
-::
+```bash
+$ cx --help
 
-  $ cx --help
+Usage: cx [OPTIONS]
 
-  Usage: cx [OPTIONS]
+Options:
+  --boundary TEXT      File containing the boundary.
+  --islands TEXT       File(s) containing island data - you can use wildcards.
+  --view-angle TEXT    View angle in degrees.
+  --min-distance TEXT  Min distance.
+  --max-distance TEXT  Max distance.
+  --output-dir TEXT    Output folder.
+  --help               Show this message and exit.
+```
 
-  Options:
-    --boundary TEXT      File containing the boundary.
-    --islands TEXT       File(s) containing island data - you can use wildcards.
-    --view-angle TEXT    View angle in degrees.
-    --min-distance TEXT  Min distance.
-    --max-distance TEXT  Max distance.
-    --output-dir TEXT    Output folder.
-    --help               Show this message and exit.
 
-
-Definition of the view angle
-----------------------------
+## Definition of the view angle
 
 The code will form view vectors perpendicular to the coastline. The code will
 make sure that along the boundary, the vectors point towards "inside" and along
@@ -67,8 +59,7 @@ total and is oriented symmetrically around the view vector which is
 perpendicular to the coast line.
 
 
-Input and output formats
-------------------------
+## Input and output formats
 
 The code will read boundary and island files. It assumes that the first line in
 the boundary file contains the total number of polygon points, followed by one
